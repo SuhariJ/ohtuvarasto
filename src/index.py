@@ -1,9 +1,8 @@
 from varasto import Varasto
 
+JARKK = "nimi"
 
-def main():
-    mehua = Varasto(100.0)
-    olutta = Varasto(100.0, 20.2)
+def luonnin_jalkeen(mehua, olutta):
 
     print("Luonnin jälkeen:")
     print(f"Mehuvarasto: {mehua}")
@@ -22,8 +21,8 @@ def main():
     mehua.ota_varastosta(3.14)
     print(f"Mehuvarasto: {mehua}")
 
-    print("Virhetilanteita:")
-    print("Varasto(-100.0);")
+def huonot_yms(mehua, olutta):
+    print("Virhetilanteita:\nVarasto(-100.0);")
     huono = Varasto(-100.0)
     print(huono)
 
@@ -40,6 +39,14 @@ def main():
     print("mehua.lisaa_varastoon(-666.0)")
     mehua.lisaa_varastoon(-666.0)
     print(f"Mehuvarasto: {mehua}")
+
+def main():
+    mehua = Varasto(100.0)
+    olutta = Varasto(100.0, 20.2)
+
+    luonnin_jalkeen(mehua, olutta)
+
+    huonot_yms(mehua, olutta)
 
     print(f"Olutvarasto: {olutta}")
     print("olutta.ota_varastosta(1000.0)")

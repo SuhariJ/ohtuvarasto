@@ -17,28 +17,36 @@ class TestVarasto(unittest.TestCase):
 
     def test_uudella_varastolla_oikea_tilavuus(self):
         self.assertAlmostEqual(self.varasto.tilavuus, 10)
+
     def test_negvarastolla_oikea_tilavuus_ja_saldo(self):
         self.assertAlmostEqual(self.negvarasto.tilavuus, 0)
         self.assertAlmostEqual(self.negvarasto.saldo, 0)
+
     def test_liikaa_alkusaldoa(self):
         self.assertAlmostEqual(self.lilvarasto.saldo, 12)
+
     def test_lisays_lisaa_saldoa(self):
         self.varasto.lisaa_varastoon(8)
         self.assertAlmostEqual(self.varasto.saldo, 8)
+
     def test_lisataan_neg_varastoon(self):
         x = self.varasto.saldo
         self.varasto.lisaa_varastoon(-4)
         self.assertAlmostEqual(self.varasto.saldo, x)
+
     def test_lisataan_liikaa(self):
         self.varasto.lisaa_varastoon(100)
         self.assertAlmostEqual(self.varasto.tilavuus, self.varasto.saldo)
+
     def test_ota_neg_varastosta(self):
         x = self.varasto.saldo
         self.varasto.ota_varastosta(-2)
         self.assertAlmostEqual(self.varasto.saldo, x)
+
     def test_ota_liikaa_varastosta(self):
         self.varasto.ota_varastosta(100)
         self.assertAlmostEqual(self.varasto.saldo, 0)
+
     def test_lisays_lisaa_pienentaa_vapaata_tilaa(self):
         self.varasto.lisaa_varastoon(8)
 
