@@ -25,5 +25,5 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Lint
-        run: uv run pylint
+        run: uv run pylint src/
       
